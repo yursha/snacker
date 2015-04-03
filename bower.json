@@ -1,0 +1,27 @@
+{
+  "name": "snacker",
+  "version": "0.0.1",
+  "homepage": "https://github.com/AlexYursha/snacker",
+  "authors": [
+    "Alex Yursha <alexyursha@gmail.com>"
+  ],
+  "description": "Data Visualizer",
+  "keywords": [
+    "data",
+    "visualize"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "~0.13.1",
+    "flux": "~2.0.2",
+    "bootstrap": "~3.3.4"
+  }
+}
