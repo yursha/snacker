@@ -1,0 +1,31 @@
+{
+  "name": "snacker",
+  "version": "0.0.1",
+  "description": "Data visualizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexYursha/snacker"
+  },
+  "keywords": [
+    "data",
+    "visualize",
+    "csv"
+  ],
+  "author": "Alex Yursha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexYursha/snacker/issues"
+  },
+  "homepage": "https://github.com/AlexYursha/snacker",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.1"
+  }
+}
