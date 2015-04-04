@@ -20,3 +20,7 @@ gulp.task('jsx', function() {
     .pipe(react())
     .pipe(gulp.dest('public/scripts/components'))
 })
+
+gulp.task('run', ['jsx', 'test'], function() {
+  require('./app')
+})
