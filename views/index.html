@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="stylesheets/sticky-footer.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+  </head>
+  <body>
+    <header class='text-center'>
+      <h1>Snacker - A Data Visualizer</h1>
+    </header>
+
+    <div class="container text-center">
+
+      <div class="row">
+
+        <!-- The column which is used for uploading files -->
+        <div class="col-md-2">
+          <input type="file" class="form-control" autofocus>
+        </div> <!-- /column -->
+
+        <!-- The column which is used for data visualization  -->
+        <div class="col-md-10">
+        </div> <!-- /column -->
+
+      </div> <!-- /row -->
+
+      <div class="row">
+
+        <div class="col-md-6 col-md-offset-3">
+          <div id="example"></div>
+        </div> <!-- /column -->
+
+      </div> <!-- /row -->
+
+    </div> <!-- /container -->
+
+    <footer class="footer">
+      <nav class="pull-left">
+        <a href="#">About</a>
+        <a href="#">Privacy</a>
+      </nav>
+      <nav class="pull-right">
+        <a href="#">Sign In</a>
+        <a href="#">Sign Up</a>
+      </nav>
+    </footer>
+
+    <!-- Scripts are placed at the bottom of the `body` to allow progressive rendering  -->
+
+    <!-- jQuery is a dependency of Twitter Boostrap -->
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Twitter Bootstrap framework -->
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- The core React library -->
+    <script src="//fb.me/react-0.13.1.js"></script>
+
+    <!-- React-based view components -->
+    <script type="text/jsx" src="scripts/components/helloworld.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,23 @@
+body > .container {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-top: 5%;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.header {
+  margin: 1em;
+}
+
+.footer > nav {
+  padding: 10px 30px;
+}
+
+.footer > nav > a {
+  color: #777;
+  line-height: 20px;
+  font-size: 0.9em;
+  margin: 0 1em;
+}
