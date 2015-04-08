@@ -14,10 +14,12 @@ var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var http = require('http')
 var util = require('util')
-var debug = require('debug')('snacker:server')
 
-var routes = require('./routes/index')
-var users = require('./routes/users')
+/* 
+ * HTTP request handlers
+ */
+var index = require('./routes/index')
+var upload = require('./routes/upload')
 
 var app = express()
 
@@ -34,10 +36,11 @@ app.use(cookieParser())
  */
 app.use(express.static('static'))
 
-app.use('/', function(req, res, next) {
-  res.sendFile('./views/index.html', {root: __dirname})
-})
-app.use('/users', users)
+/*
+ * Request handlers
+ */
+app.get('/', index)
+app.post('/upload', upload)
 
 /*
  * 404 'Page Not Found' handler.

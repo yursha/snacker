@@ -1,9 +1,12 @@
-var express = require('express')
-var router = express.Router()
+/*
+ * Loads initial Single Page Application
+ */
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' })
-})
+var path = require('path')
 
-module.exports = router
+module.exports = function(req, res, next) {
+
+  // Resolve filepath manually as Express forbids using relative path names in `res.sendFile`
+  var filepath = path.resolve(__dirname, '../views/index.html')
+  res.sendFile(filepath)
+}
