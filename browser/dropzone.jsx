@@ -12,7 +12,6 @@ var DropzoneDemo = React.createClass({
     onDrop: function (files) {
       console.log('Received files: ', files)
       var formData = new FormData()
-      formData.append('mytestfield', 'i will succeed')
       files.forEach(function(file) {
         console.log(file)
         formData.append('files', file)
