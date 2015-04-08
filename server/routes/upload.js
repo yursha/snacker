@@ -6,9 +6,12 @@ var inspect = require('util').inspect
 var Busboy = require('busboy')
 var sleep = require('sleep').sleep
 
+var analyze = require('../services/analyzeCsv')
+
 module.exports = function(req, res, next) {
   var busboy = new Busboy({ headers: req.headers })
   busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
+      analyze(file)
       file.on('data', function(data) {
         // console.log('Got ' + data.length + ' bytes')
       })
