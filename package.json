@@ -19,19 +19,21 @@
     "convert-source-map": "^1.0.0",
     "imagemin": "^3.1.0",
     "mocha": "^2.2.1",
+    "onchange": "^1.0.0",
     "reactify": "^1.1.0",
     "tap": "^0.7.1",
     "uglify-js": "^2.4.19",
     "watchify": "^3.1.0"
   },
   "scripts": {
-    "build-js": "browserify browser/main.js | uglifyjs -mc > static/bundle.js",
-    "build-css": "cat static/styles/*.css > static/bundle.css",
+    "build-js": "browserify --transform reactify browser/main.js | uglifyjs -mc > static/bundle.js",
+    "build-css": "cat node_modules/bootstrap/dist/css/bootstrap.min.css browser/styles/*.css > static/bundle.css",
     "build": "npm run build-js && npm run build-css",
     "watch-js": "watchify browser/main.js -o static/bundle.js --debug --verbose",
     "watch-css": "catw static/styles/*.css -o static/bundle.css -v",
-    "watch": "npm run watch-js & npm run watch-css",
-    "start": "npm run build && node server.js",
+    "watch": "npm run watch-js & npm run watch-css & npm run post-js",
+    "post-js": "onchange static/bundle.js -- npm test",
+    "start": "npm run build && node server/main.js",
     "start-dev": "npm run watch & npm start",
     "test": "tap test/*.js"
   }

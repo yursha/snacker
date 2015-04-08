@@ -10,7 +10,6 @@
 var express = require('express')
 var path = require('path')
 var favicon = require('serve-favicon')
-var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var http = require('http')
@@ -24,17 +23,16 @@ var app = express()
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 /*
- * Set up `static` middleware to serve static assets from the `./public` folder.
+ * Set up `static` middleware to serve static assets.
  *
  * @see http://expressjs.com/api.html#express.static
  */
-app.use(express.static('public'))
+app.use(express.static('static'))
 
 app.use('/', function(req, res, next) {
   res.sendFile('./views/index.html', {root: __dirname})
