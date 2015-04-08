@@ -5,6 +5,7 @@ var csv = require('csv-parser')
  */
 module.exports = function (file, callback) {
 	var stats = {}
+	var resultArray = []
 	var rowsNum = 0
 	file.pipe(csv({raw: false}))
 		.on('data', function(data) {
@@ -15,16 +16,14 @@ module.exports = function (file, callback) {
 			for (var columnName in stats) {
 				columnStats = stats[columnName]
 
-				// count unique values in a column
-				columnStats.uniqueValues = Object.keys(columnStats.uniqueValues).length
-
-				// count the percent of column fillness
-				columnStats.fill = 1 - columnStats.empty / rowsNum
-
-				// `empty` is not used in the browser so remove it here to save network bandwidth
-				delete columnStats.empty
+				var result = {}
+				result['Column Name'] = columnName
+				result['Fillness'] = Math.round((1 - columnStats.empty / rowsNum) * 100) + '%'
+				result['Unique Values'] = Object.keys(columnStats.uniqueValues).length
+				result['Data Type'] = columnStats.isData ? 'data' : 'string'
+				resultArray.push(result)
 			}
-			callback(stats)
+			callback(resultArray)
 		}) 
 		.on('error', function(error) {
 			console.log(error)
