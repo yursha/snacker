@@ -4,7 +4,6 @@
 
 var inspect = require('util').inspect
 var Busboy = require('busboy')
-var sleep = require('sleep').sleep
 
 var analyze = require('../services/analyzeCsv')
 
