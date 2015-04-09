@@ -2,22 +2,30 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="bundle.css">
+
+        <!-- temporary include this style here while less compiler task is not set up -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/taucharts/latest/tauCharts.min.css">
+
   </head>
   <body>
-    <header class='text-center'>
+    <header class='main-header text-center'>
       <h1>Snacker - A Data Visualizer</h1>
     </header>
 
-    <div class="container">
+    <div class="container-fluid">
 
       <div class="row">
 
-        <div id="dropzone-area" class="col-sm-2">
-        </div> <!-- /dropzone-area -->
+        <div class="col-sm-5">
+          <div id="dropzone-area"></div>
+          <div id="scatter"></div>
+        </div>
 
-        <div id="visualization-area" class="col-sm-10">
-        </div> <!-- /visualization-area -->
+        <div class="col-sm-7">
+          <div id="csv-stats-tables-area"></div>
+        </div>
 
       </div> <!-- /row -->
 
@@ -42,9 +50,13 @@
       </nav>
     </footer>
 
+    <!-- TauCharts doesn't play nice with browserify :( -->
+    <script src="//cdn.jsdelivr.net/d3js/latest/d3.min.js" charset="utf-8"></script>
+    <script src="//cdn.jsdelivr.net/underscorejs/latest/underscore-min.js" type="text/javascript"></script>
+    <script src="//cdn.jsdelivr.net/taucharts/latest/tauCharts.min.js" type="text/javascript"></script>
+
     <!-- Bundled scripts file is placed at the bottom of the `body` to allow progressive rendering  -->
     <script src="bundle.js"></script>
-
 
   </body>
 </html>

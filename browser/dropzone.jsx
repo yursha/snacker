@@ -36,18 +36,17 @@ var DropzoneDemo = React.createClass({
         //Ajax events
         beforeSend: null,
         success: function(message, status, request) {
-          var visualizationArea = document.getElementById('visualization-area')
+          var tablesArea = document.getElementById('csv-stats-tables-area')
           Object.keys(message).forEach(function (filename) {
             var div = document.createElement('div')
-            $(visualizationArea).prepend(div)
+            $(tablesArea).prepend(div)
             React.render(
               <div>
                 <h2>
-                  <span className="text-warning">{filename}</span> - 
-                  total columns: <span className="text-success">{message[filename].stats.length}</span>, 
-                  total rows: <span className="text-success">{message[filename].numRows}</span>
+                  <span className="text-warning">{filename}</span>
                   <button type="button" className="close" onClick={remove}>&times;</button>
                 </h2>
+                <h4>Total columns: <span className="text-success">{message[filename].stats.length}</span>, total rows: <span className="text-success">{message[filename].numRows}</span></h4>
                 <Griddle 
                   results={message[filename].stats} 
                   resultsPerPage={25} 
