@@ -21,9 +21,12 @@
     "uglify-js": "^2.4.19"
   },
   "scripts": {
-    "build-js": "browserify --transform reactify browser/main.js | uglifyjs -mc > static/bundle.js",
+    "build-min-js": "browserify --transform reactify browser/main.js | uglifyjs -mc > static/bundle.js",
+    "build-js": "browserify --transform reactify browser/main.js > static/bundle.js",
     "build-css": "cat node_modules/bootstrap/dist/css/bootstrap.min.css browser/styles/*.css > static/bundle.css",
-    "build": "npm run build-js && npm run build-css && npm run test",
+    "build": "npm run build-min-js && npm run build-css && npm run test",
+    "build-dev": "npm run build-js && npm run build-css && npm run test",
+    "start-dev": "npm run build-dev && node server/main.js",
     "start": "npm run build && node server/main.js",
     "test": "tap test/*.js"
   }
