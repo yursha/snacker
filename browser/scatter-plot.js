@@ -46,3 +46,5 @@ var chart = new tauCharts.Chart({
         })
 
 chart.renderTo('#scatter')
+
+module.exports = chart

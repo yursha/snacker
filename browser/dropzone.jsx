@@ -2,6 +2,8 @@ var $ = require('jquery')
 var React = require('react')
 var Dropzone = require('react-dropzone')
 var Griddle = require('griddle-react')
+var scatterPlot = require('./scatter-plot')
+var util = require('util')
 
 function handleProgress(e, progressBar){
     if(e.lengthComputable){
@@ -38,6 +40,11 @@ var DropzoneDemo = React.createClass({
         success: function(message, status, request) {
           var tablesArea = document.getElementById('csv-stats-tables-area')
           Object.keys(message).forEach(function (filename) {
+            // enrich scatter plot
+            scatterPlot.config.data.push({"isFile": true, "minute": 53, "memoryUsed": 33, "processingTime": 1000})
+            scatterPlot.renderTo('#scatter')
+            
+            // create table
             var div = document.createElement('div')
             $(tablesArea).prepend(div)
             React.render(
