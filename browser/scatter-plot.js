@@ -5,7 +5,7 @@ var defData = [
 var chart = new tauCharts.Chart({
             guide:{
                 x:{label: 'Calendar Minute', autoscale: false},
-                y:{label:'Median Memory Usage'}
+                y:{label:'Median Server App Memory Usage (bytes)'}
             },
             data: defData,
             type: 'scatterplot',           

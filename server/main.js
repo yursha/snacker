@@ -17,6 +17,7 @@ var util = require('util')
  */
 var index = require('./routes/index')
 var upload = require('./routes/upload')
+var memory = require('./routes/memory')
 
 var app = express()
 
@@ -31,6 +32,7 @@ app.use(express.static('static'))
  * Request handlers
  */
 app.get('/', index)
+app.get('/memory', memory)
 app.post('/upload', upload)
 
 /*
