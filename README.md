@@ -5,7 +5,7 @@ Allows you to drop multiple CSV files and receive analytics in a nicely styled t
 ## This is a minimal viable product.
 - There is no input file type and well-formedness validation
 - There is no error handling logic
-- There is no unit and e2e tests
+- There is no e2e tests
 
 ## How to launch
 After you perform the following commands the Snacker server will be started on `localhost:3000`. Open you browser and start playing.
