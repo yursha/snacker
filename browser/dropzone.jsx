@@ -41,9 +41,9 @@ var DropzoneDemo = React.createClass({
           var tablesArea = document.getElementById('csv-stats-tables-area')
           Object.keys(message).forEach(function (filename) {
             // enrich scatter plot
-            scatterPlot.config.data.push({"isFile": true, "minute": 53, "memoryUsed": 33, "processingTime": 1000})
+            scatterPlot.config.data.push({"isFile": true, "minute": new Date().getMinutes(), "memoryUsed": message[filename].memoryUsage, "processingTime": message[filename].processingTime})
             scatterPlot.renderTo('#scatter')
-            
+
             // create table
             var div = document.createElement('div')
             $(tablesArea).prepend(div)

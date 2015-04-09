@@ -14,8 +14,9 @@ module.exports = function(req, res, next) {
 
   busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
     ++numFiles
+    var start = Date.now()
     analyze(file, function(fileStats, numRows) {
-      responseData[filename] = {numRows: numRows, stats: fileStats}
+      responseData[filename] = {numRows: numRows, stats: fileStats, memoryUsage: process.memoryUsage().heapUsed, processingTime: Date.now() - start}
       maybeSendResponse()
     })
     file.on('data', function(data) {
