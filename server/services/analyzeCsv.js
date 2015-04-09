@@ -23,7 +23,7 @@ module.exports = function (file, callback) {
 				result['Data Type'] = columnStats.isData ? 'data' : 'string'
 				resultArray.push(result)
 			}
-			callback(resultArray, Object.keys(stats).length, rowsNum)
+			callback(resultArray, rowsNum)
 		}) 
 		.on('error', function(error) {
 			console.log(error)

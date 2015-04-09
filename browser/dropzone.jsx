@@ -37,20 +37,19 @@ var DropzoneDemo = React.createClass({
         beforeSend: null,
         success: function(message, status, request) {
           var visualizationArea = document.getElementById('visualization-area')
-          // <button className='{btn btn-danger}' onclick={$(div).remove()}></button>
-          Object.keys(message).forEach(function (key) {
+          Object.keys(message).forEach(function (filename) {
             var div = document.createElement('div')
             $(visualizationArea).prepend(div)
             React.render(
               <div>
                 <h2>
-                  <span className="text-warning">{key}</span> - 
-                  total columns: <span className="text-success">{message[key].numColumns}</span>, 
-                  total rows: <span className="text-success">{message[key].numRows}</span>
+                  <span className="text-warning">{filename}</span> - 
+                  total columns: <span className="text-success">{message[filename].stats.length}</span>, 
+                  total rows: <span className="text-success">{message[filename].numRows}</span>
                   <button type="button" className="close" onClick={remove}>&times;</button>
                 </h2>
                 <Griddle 
-                  results={message[key].stats} 
+                  results={message[filename].stats} 
                   resultsPerPage={25} 
                   showFilter={true} 
                   useGriddleStyles={false} 

@@ -14,8 +14,8 @@ module.exports = function(req, res, next) {
 
   busboy.on('file', function(fieldname, file, filename, encoding, mimetype) {
     ++numFiles
-    analyze(file, function(fileStats, numColumns, numRows) {
-      responseData[filename] = {numColumns: numColumns, numRows: numRows, stats: fileStats}
+    analyze(file, function(fileStats, numRows) {
+      responseData[filename] = {numRows: numRows, stats: fileStats}
       maybeSendResponse()
     })
     file.on('data', function(data) {
