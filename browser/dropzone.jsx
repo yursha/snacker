@@ -44,11 +44,13 @@ var DropzoneDemo = React.createClass({
             React.render(
               <div>
                 <h2>
-                  <span className="text-warning">{key}</span>
+                  <span className="text-warning">{key}</span> - 
+                  total columns: <span className="text-success">{message[key].numColumns}</span>, 
+                  total rows: <span className="text-success">{message[key].numRows}</span>
                   <button type="button" className="close" onClick={remove}>&times;</button>
                 </h2>
                 <Griddle 
-                  results={message[key]} 
+                  results={message[key].stats} 
                   resultsPerPage={25} 
                   showFilter={true} 
                   useGriddleStyles={false} 

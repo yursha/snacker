@@ -18,12 +18,12 @@ module.exports = function (file, callback) {
 
 				var result = {}
 				result['Column Name'] = columnName
-				result['Fillness'] = Math.round((1 - columnStats.empty / rowsNum) * 100) + '%'
+				result['Fillness'] = Math.round((1 - columnStats.empty / rowsNum) * 10000) / 100 + '%'
 				result['Unique Values'] = Object.keys(columnStats.uniqueValues).length
 				result['Data Type'] = columnStats.isData ? 'data' : 'string'
 				resultArray.push(result)
 			}
-			callback(resultArray)
+			callback(resultArray, Object.keys(stats).length, rowsNum)
 		}) 
 		.on('error', function(error) {
 			console.log(error)
