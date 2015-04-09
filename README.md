@@ -1,9 +1,6 @@
-# snacker
-Data visualizer.
+# snacker - a data visualizer
 
-Allows you to drop multiple CSV files and receive analytics in a nicely styled table format.
-
-Analytics shown is percentage of empty cells, number of unique values and data type for each column.
+Allows you to drop multiple CSV files and receive analytics in a nicely styled table format. You can then filter and sort the shown data. Analytics includes percentage of empty cells, number of unique values and a data type for each column.
 
 ## Usage
 
